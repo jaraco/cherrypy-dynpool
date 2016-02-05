@@ -30,8 +30,7 @@ setup_args = dict(
         "dynpool>=2.0,<3.0"
     ],
     setup_requires=[
-        'pytest-runner',
-    ],
+    ] + pytest_runner,
     tests_require=[
         'pytest',
     ],
