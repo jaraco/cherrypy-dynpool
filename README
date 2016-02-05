@@ -1,9 +1,7 @@
 cherrypy-dynpool
 ================
 
-A dynamic threadpool tool for CherryPy 3.x
-
-(A backport from CherryPy 4)
+A dynamic threadpool tool for CherryPy
 
 
 Usage::
