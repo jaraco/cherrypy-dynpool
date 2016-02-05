@@ -35,7 +35,7 @@ setup_args = dict(
     long_description=open(root_dir() + '/README').read(),
     cmdclass={'test': pytest_test},
     install_requires=[
-        "Cherrypy>=3.2,<4.0",
+        "CherryPy>=3.2",
         "dynpool>=2.0,<3.0"
     ],
     classifiers=[
