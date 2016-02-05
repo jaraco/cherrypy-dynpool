@@ -17,7 +17,7 @@ pytest_runner = ['pytest_runner'] if needs_pytest else []
 
 setup_args = dict(
     name='cherrypy-dynpool',
-    version='2.2',
+    version='2.2.1',
     url='https://bitbucket.org/tabo/cherrypy-dynpool/',
     author='Gustavo Picon',
     author_email='tabo@tabo.pe',
