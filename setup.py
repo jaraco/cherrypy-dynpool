@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
 import os
+import sys
 from setuptools import setup
-from setuptools.command.test import test
 
 
 def root_dir():
@@ -11,16 +11,8 @@ def root_dir():
         return rd
     return '.'
 
-
-class pytest_test(test):
-    def finalize_options(self):
-        test.finalize_options(self)
-        self.test_args = []
-        self.test_suite = True
-
-    def run_tests(self):
-        import pytest
-        pytest.main([])
+needs_pytest = set(['pytest', 'test']).intersection(sys.argv)
+pytest_runner = ['pytest_runner'] if needs_pytest else []
 
 
 setup_args = dict(
@@ -33,10 +25,15 @@ setup_args = dict(
     py_modules=['cherrypy_dynpool'],
     description='A dynamic thread pool tool for CherryPy 3.',
     long_description=open(root_dir() + '/README').read(),
-    cmdclass={'test': pytest_test},
     install_requires=[
         "CherryPy>=3.2",
         "dynpool>=2.0,<3.0"
+    ],
+    setup_requires=[
+        'pytest-runner',
+    ],
+    tests_require=[
+        'pytest',
     ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
