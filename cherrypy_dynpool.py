@@ -1,7 +1,11 @@
 import cherrypy
-from cherrypy.wsgiserver import ThreadPool
 from cherrypy.process.plugins import Monitor
 from dynpool import DynamicPoolResizer
+
+try:
+    from cherrypy.wsgiserver import ThreadPool
+except ImportError:
+    from cheroot.workers.threadpool import ThreadPool
 
 
 def get_pool_resizer(self, minspare=1, maxspare=5, shrinkfreq=10, logfreq=0,
