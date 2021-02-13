@@ -1,3 +1,8 @@
+"""
+>>> mon = ThreadPoolMonitor(cherrypy.engine)
+>>> mon.run()
+"""
+
 import cherrypy
 from cherrypy.process.plugins import Monitor
 from dynpool import DynamicPoolResizer
