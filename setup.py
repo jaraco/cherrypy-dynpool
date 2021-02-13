@@ -1,11 +1,6 @@
 #!/usr/bin/env python
 
-import sys
 from setuptools import setup
-
-
-needs_pytest = set(['pytest', 'test']).intersection(sys.argv)
-pytest_runner = ['pytest_runner'] if needs_pytest else []
 
 
 setup_args = dict(
@@ -20,11 +15,6 @@ setup_args = dict(
     install_requires=[
         "CherryPy>=3.2",
         "dynpool>=2.0,<3.0"
-    ],
-    setup_requires=[
-    ] + pytest_runner,
-    tests_require=[
-        'pytest',
     ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
